@@ -1,4 +1,9 @@
 const exchangeRatesTable = document.getElementById('exchangeRatesTable');
+const currencySelect = document.getElementById('currency');
+const amountInput = document.getElementById('amount');
+const operationSelect = document.getElementById('operation');
+const calculateButton = document.getElementById('calculateButton');
+const resultDiv = document.getElementById('result');
 
 const fetchExchangeRates = async () => {
     try {
@@ -21,3 +26,9 @@ const fetchExchangeRates = async () => {
 }
 
 fetchExchangeRates();
+
+const calculate = () => {
+    const currency = currencySelect.value;
+    const amount = amountInput.value;
+    const operation = operationSelect.value;
+    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(3)`
