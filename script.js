@@ -31,4 +31,29 @@ const calculate = () => {
     const currency = currencySelect.value;
     const amount = amountInput.value;
     const operation = operationSelect.value;
-    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(3)`
+    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(3)`).innerText);
+    const cryptoRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(2)`).innerText);
+
+    let result;
+
+    if (operation === 'usdToCrypto') {
+        result = (amount / usdRate).toFixed(6);
+        resultDiv.innerHTML = `$${amount} is equivalent to ${result} ${currency.toUpperCase()} (at $${usdRate} per ${currency.toUpperCase()})`;
+    } else if (operation === 'cryptoToUsd') {
+        result = (amount * usdRate).toFixed(2);
+        resultDiv.innerHTML = `${amount} ${currency.toUpperCase()} is equivalent to $${result} (at $${usdRate} per ${currency.toUpperCase()})`;
+    }
+}
+
+calculateButton.addEventListener('click', calculate);
+
+const getCurrencyRow = (currency) => {
+    switch (currency) {
+        case 'bitcoin':
+            return 1;
+        case 'ethereum':
+            return 2;
+        case 'dogecoin':
+            return 3;
+    }
+}
