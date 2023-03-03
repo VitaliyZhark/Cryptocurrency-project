@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>Cryptocurrency Calculator</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Cryptocurrenсy Calculator</h1>
     <div class="container">
-      <form id="from-currency">
+    <form id="from-currency">
         <div class="form-group">
-          <label for="crypto-select">Select a crypto currency</label>
-          <select name="crypto-select" id="crypto-select">
+        <label for="crypto-select">Select a crypto currency</label>
+        <select name="crypto-select" id="crypto-select">
             <option value="">--Select a crypto currency--</option>
             <option value="BTC">BTC</option>
             <option value="ETH">ETH</option>
             <option value="LTC">LTC</option>
             <option value="XRP">XRP</option>
             <option value="UNI">UNI</option>
-          </select>
+        </select>
         </div>
 
         <div class="form-group">
-          <label for="amount">Invested Amount $</label>
-          <input
+        <label for="amount">Invested Amount $</label>
+        <input
             type="number"
             name="amount"
             id="amount"
             placeholder="Enter amount"
-          />
+        />
         </div>
         <div class="form-group">
-          <label for="price">Buy price $</label>
-          <input
+        <label for="price">Buy price $</label>
+        <input
             type="number"
             name="price"
             id="price"
             placeholder="Enter price"
-          />
+        />
         </div>
         <div class="form-group">
-          <label for="fee">Investment Fee %</label>
-          <input
+        <label for="fee">Investment Fee %</label>
+        <input
             type="number"
             name="fee"
             id="entry-fee"
             placeholder="Enter fee"
-          />
+        />
         </div>
         <div class="exit-price">
-          <div class="form-group">
+        <div class="form-group">
             <label for="sell-price">Sell price $</label>
             <input
-              type="number"
-              name="sell-price"
-              id="sell-price"
-              placeholder="Enter sell price"
+            type="number"
+            name="sell-price"
+            id="sell-price"
+            placeholder="Enter sell price"
             />
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <span class="SelectMarket-price">
-              <input type="checkbox" id="SelectMarket-price" />
-              <label for="SelectMarket-price">Market price $</label>
+            <input type="checkbox" id="SelectMarket-price" />
+            <label for="SelectMarket-price">Market price $</label>
             </span>
 
             <input
-              type="number"
-              name="Market-price"
-              id="Market-price"
-              placeholder="Enter Market price"
-              value="000000"
-              disabled
+            type="number"
+            name="Market-price"
+            id="Market-price"
+            placeholder="Enter Market price"
+            value="000000"
+            disabled
             />
-          </div>
+        </div>
         </div>
 
         <div class="form-group">
-          <label for="fee">Exit Fee %</label>
-          <input
+        <label for="fee">Exit Fee %</label>
+        <input
             type="number"
             name="fee"
             id="exit-fee"
             placeholder="Enter fee"
-          />
+        />
         </div>
 
         <button class="btn btn-primary" type="submit" id="calculate">
-          Calculate
+        Calculate
         </button>
-      </form>
+    </form>
 
-      <div class="result">
+    <div class="result">
         <span id="profit"></span>
-      </div>
+    </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
-
+</body>
 
 
 </html>
