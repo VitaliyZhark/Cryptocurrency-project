@@ -9,10 +9,9 @@
   
   :root {
     --primary-color: #7633f9;
-    --secondary-color: linear-gradient(135deg, #15fffb 0%, #0048a7 100%);
-    --light-color: #ffff00;
-    --light-colorr: white;
-    --dark-color: #000737;
+    --secondary-color: #ffc107;
+    --light-color: #f5f5f5;
+    --dark-color: #08023a;
     --success-color: #28a745;
     --danger-color: #dc3545;
     --btc-color: #f2a400;
@@ -132,7 +131,7 @@
   .result {
     width: 50%;
     padding: 20px;
-    background-color: var(--light-colorr);
+    background-color: var(--light-color);
     color: var(--dark-color);
     border-radius: 25px;
     font-weight: 500;
