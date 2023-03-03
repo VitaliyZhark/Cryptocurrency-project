@@ -9,39 +9,43 @@
 </head>
 <body>
     
-    <h1>Crypto Exchange Rates and Calculator</h1>
-    <h2>Exchange Rates</h2>
-    <table>
-        <thead>
+        <div class="container">
+          <h1>Cryptocurrency Exchange Rate Calculator</h1>
+          <table id="exchangeRatesTable">
             <tr>
-                <th>Currency</th>
-                <th>Price in GBP</th>
-                <th>Price in USD</th>
+              <th>Cryptocurrency</th>
+              <th>GBP</th>
+              <th>USD</th>
             </tr>
-        </thead>
-        <tbody id="exchangeRatesTable">
-        </tbody>
-    </table>
-    <h2>Crypto Calculator</h2>
-    <form>
-        <label for="currency">Select a currency:</label>
-        <select id="currency">
-            <option value="bitcoin">Bitcoin</option>
-            <option value="ethereum">Ethereum</option>
-            <option value="dogecoin">Dogecoin</option>
-        </select><br><br>
-        <label for="amount">Enter an amount:</label>
-        <input type="number" id="amount" name="amount"><br><br>
-        <label for="operation">Select an operation:</label>
-        <select id="operation">
-            <option value="usdToCrypto">USD to Crypto</option>
-            <option value="cryptoToUsd">Crypto to USD</option>
-        </select><br><br>
-        <button type="button" id="calculateButton">Calculate</button>
-        <br><br>
-        <div id="result"></div>
-    </form>
-    <script src="script.js"></script>
+          </table>
+          <div>
+            <label for="currency">Select cryptocurrency:</label>
+            <select id="currency">
+              <option value="bitcoin">Bitcoin</option>
+              <option value="ethereum">Ethereum</option>
+              <option value="dogecoin">Dogecoin</option>
+            </select>
+          </div>
+          <div>
+            <label for="amount">Enter amount:</label>
+            <input type="number" id="amount" min="0" step="0.000001" />
+          </div>
+          <div>
+            <label for="operation">Select operation:</label>
+            <select id="operation">
+              <option value="usdToCrypto">USD to cryptocurrency</option>
+              <option value="cryptoToUsd">Cryptocurrency to USD</option>
+            </select>
+          </div>
+          <button id="calculateButton">Calculate</button>
+          <div id="result"></div>
+        </div>
+        <script src="script.js"></script>
+      </body>
+    </html>
+    
+
+
 
 </body>
 </html>

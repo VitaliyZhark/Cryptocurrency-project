@@ -10,7 +10,19 @@ const fetchExchangeRates = async () => {
         const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin&vs_currencies=GBP,USD');
         const data = await response.json();
 
+        const bitcoinRow = exchangeRatesTable.insertRow();
+        const bitcoinCell = bitcoinRow.insertCell();
+        const bitcoinGbpCell = bitcoinRow.insertCell();
+        const bitcoinUsdCell = bitcoinRow.insertCell();
+
+        bitcoinCell.innerHTML = 'Bitcoin';
+        bitcoinGbpCell.innerHTML = data.bitcoin.GBP.toFixed(2);
+        bitcoinUsdCell.innerHTML = data.bitcoin.USD.toFixed(2);
+
         for (const [key, value] of Object.entries(data)) {
+            if (key === 'bitcoin') {
+                continue;
+            }
             const row = exchangeRatesTable.insertRow();
             const currencyCell = row.insertCell();
             const gbpCell = row.insertCell();
@@ -31,30 +43,9 @@ const calculate = () => {
     const currency = currencySelect.value;
     const amount = amountInput.value;
     const operation = operationSelect.value;
-    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(3)`).innerText);
-    const cryptoRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${getCurrencyRow(currency)}) td:nth-of-type(2)`).innerText);
-
-    let result;
-
-    if (operation === 'usdToCrypto') {
-        result = (amount / usdRate).toFixed(6);
-        resultDiv.innerHTML = `$${amount} is equivalent to ${result} ${currency.toUpperCase()} (at $${usdRate} per ${currency.toUpperCase()})`;
-    } else if (operation === 'cryptoToUsd') {
-        result = (amount * usdRate).toFixed(2);
-        resultDiv.innerHTML = `${amount} ${currency.toUpperCase()} is equivalent to $${result} (at $${usdRate} per ${currency.toUpperCase()})`;
-    }
+    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${currency === 'bitcoin' ? 2 : currency === 'ethereum' ? 3 : 4}) td:nth-of-type(3)`).innerHTML);
+    const result = operation === 'usdToCrypto' ? (amount / usdRate).toFixed(8) : (amount * usdRate).toFixed(2);
+    resultDiv.innerHTML = `Result: ${result} ${operation === 'usdToCrypto' ? currency.toUpperCase() : 'USD'}`;
 }
 
 calculateButton.addEventListener('click', calculate);
-
-const getCurrencyRow = (currency) => {
-    switch (currency) {
-        case 'bitcoin':
-            return 1;
-        case 'ethereum':
-            return 2;
-        case 'dogecoin':
-            return 3;
-    }
-}
-
