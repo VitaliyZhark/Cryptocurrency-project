@@ -32,7 +32,7 @@ To use the application, please follow link:
 
 <h2 id="Preview">Preview</h2>
 <p>The following image shows the web application's appearance and functionality:</p>
-<img width="300px" height="auto" src="https://github.com/VitaliyZhark/Bootstrap-Portfolio/blob/main/images/Bootstrap Portfolio Website-min.png">
+<img width="300px" height="auto" src="https://raw.githubusercontent.com/VitaliyZhark/Cryptocurrency-project/main/cryptoimg.png">
 
 
 ## Contributing
