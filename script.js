@@ -1,51 +1,59 @@
-const exchangeRatesTable = document.getElementById('exchangeRatesTable');
-const currencySelect = document.getElementById('currency');
-const amountInput = document.getElementById('amount');
-const operationSelect = document.getElementById('operation');
-const calculateButton = document.getElementById('calculateButton');
-const resultDiv = document.getElementById('result');
-
-const fetchExchangeRates = async () => {
-    try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin&vs_currencies=GBP,USD');
-        const data = await response.json();
-
-        const bitcoinRow = exchangeRatesTable.insertRow();
-        const bitcoinCell = bitcoinRow.insertCell();
-        const bitcoinGbpCell = bitcoinRow.insertCell();
-        const bitcoinUsdCell = bitcoinRow.insertCell();
-
-        bitcoinCell.innerHTML = 'Bitcoin';
-        bitcoinGbpCell.innerHTML = data.bitcoin.GBP.toFixed(2);
-        bitcoinUsdCell.innerHTML = data.bitcoin.USD.toFixed(2);
-
-        for (const [key, value] of Object.entries(data)) {
-            if (key === 'bitcoin') {
-                continue;
-            }
-            const row = exchangeRatesTable.insertRow();
-            const currencyCell = row.insertCell();
-            const gbpCell = row.insertCell();
-            const usdCell = row.insertCell();
-
-            currencyCell.innerHTML = key.toUpperCase();
-            gbpCell.innerHTML = value.GBP.toFixed(2);
-            usdCell.innerHTML = value.USD.toFixed(2);
-        }
-    } catch (error) {
-        console.error(error);
+const cryptocurrencies = [
+    { symbol: "BTC", name: "Bitcoin" },
+    { symbol: "ETH", name: "Ethereum" },
+    { symbol: "ADA", name: "Cardano" },
+    { symbol: "BNB", name: "Binance Coin" },
+    { symbol: "XRP", name: "XRP" },
+    { symbol: "SOL", name: "Solana" },
+    { symbol: "DOT", name: "Polkadot" },
+    { symbol: "DOGE", name: "Dogecoin" },
+    { symbol: "LINK", name: "Chainlink" },
+    { symbol: "BCH", name: "Bitcoin Cash" },
+  ];
+  
+  const currencyRates = {
+    usd: 1,
+    gbp: 1.39,
+  };
+  
+  const getPrice = async (symbol) => {
+    const url = `https://api.coincap.io/v2/assets/${symbol}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return parseFloat(data.data.priceUsd);
+  };
+  
+  const updatePrice = async (symbol, currency) => {
+    const price = await getPrice(symbol);
+    const priceInCurrency = price * currencyRates[currency];
+    const priceElement = document.getElementById(`${symbol.toLowerCase()}-price-${currency}`);
+    priceElement.textContent = priceInCurrency.toFixed(2);
+  };
+  
+  const updateAllPrices = async () => {
+    for (let crypto of cryptocurrencies) {
+      await updatePrice(crypto.symbol, "usd");
+      await updatePrice(crypto.symbol, "gbp");
     }
-}
-
-fetchExchangeRates();
-
-const calculate = () => {
-    const currency = currencySelect.value;
-    const amount = amountInput.value;
-    const operation = operationSelect.value;
-    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${currency === 'bitcoin' ? 2 : currency === 'ethereum' ? 3 : 4} ${currency !== 'bitcoin' ? '+ 1' : ''}) td:nth-of-type(3)`).innerHTML);
-    const result = operation === 'usdToCrypto' ? (amount / usdRate).toFixed(8) : (amount * usdRate).toFixed(2);
-    resultDiv.innerHTML = `Result: ${result} ${operation === 'usdToCrypto' ? currency.toUpperCase() : 'USD'}`;
-}
-
-calculateButton.addEventListener('click', calculate);
+  };
+  
+  const calculateResult = () => {
+    const cryptocurrency = document.getElementById("cryptocurrency").value;
+    const amount = parseFloat(document.getElementById("amount").value);
+    const currency = document.getElementById("currency").value;
+    const priceInCurrency = document.getElementById(`${cryptocurrency}-price-${currency}`).textContent;
+    const result = amount / parseFloat(priceInCurrency);
+    document.getElementById("result").textContent = `Result: ${result.toFixed(8)} ${cryptocurrency} = ${amount.toFixed(2)} ${currency.toUpperCase()}`;
+  };
+  
+  const init = async () => {
+    await updateAllPrices();
+    calculateResult();
+  };
+  
+  document.getElementById("cryptocurrency").addEventListener("change", calculateResult);
+  document.getElementById("amount").addEventListener("input", calculateResult);
+  document.getElementById("currency").addEventListener("change", calculateResult);
+  
+  init();
+  

@@ -9,40 +9,98 @@
 </head>
 <body>
     
-        <div class="container">
-          <h1>Cryptocurrency Exchange Rate Calculator</h1>
-          <table id="exchangeRatesTable">
-            <tr>
-              <th>Cryptocurrency</th>
-              <th>GBP</th>
-              <th>USD</th>
-            </tr>
-          </table>
-          <div>
-            <label for="currency">Select cryptocurrency:</label>
-            <select id="currency">
-              <option value="bitcoin">Bitcoin</option>
-              <option value="ethereum">Ethereum</option>
-              <option value="dogecoin">Dogecoin</option>
+        <h1>Cryptocurrency Converter</h1>
+        <table>
+          <tr>
+            <th>Cryptocurrency</th>
+            <th>Price (USD)</th>
+            <th>Price (GBP)</th>
+          </tr>
+          <tr id="bitcoin">
+            <td>Bitcoin</td>
+            <td id="bitcoin-price-usd"></td>
+            <td id="bitcoin-price-gbp"></td>
+          </tr>
+          <tr id="ethereum">
+            <td>Ethereum</td>
+            <td id="ethereum-price-usd"></td>
+            <td id="ethereum-price-gbp"></td>
+          </tr>
+          <tr id="cardano">
+            <td>Cardano</td>
+            <td id="cardano-price-usd"></td>
+            <td id="cardano-price-gbp"></td>
+          </tr>
+          <tr id="binance-coin">
+            <td>Binance Coin</td>
+            <td id="binance-coin-price-usd"></td>
+            <td id="binance-coin-price-gbp"></td>
+          </tr>
+          <tr id="xrp">
+            <td>XRP</td>
+            <td id="xrp-price-usd"></td>
+            <td id="xrp-price-gbp"></td>
+          </tr>
+          <tr id="solana">
+            <td>Solana</td>
+            <td id="solana-price-usd"></td>
+            <td id="solana-price-gbp"></td>
+          </tr>
+          <tr id="polkadot">
+            <td>Polkadot</td>
+            <td id="polkadot-price-usd"></td>
+            <td id="polkadot-price-gbp"></td>
+          </tr>
+          <tr id="dogecoin">
+            <td>Dogecoin</td>
+            <td id="dogecoin-price-usd"></td>
+            <td id="dogecoin-price-gbp"></td>
+          </tr>
+          <tr id="chainlink">
+            <td>Chainlink</td>
+            <td id="chainlink-price-usd"></td>
+            <td id="chainlink-price-gbp"></td>
+          </tr>
+          <tr id="bitcoin-cash">
+            <td>Bitcoin Cash</td>
+            <td id="bitcoin-cash-price-usd"></td>
+            <td id="bitcoin-cash-price-gbp"></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="cryptocurrency">Cryptocurrency:</label>
+              <select name="cryptocurrency" id="cryptocurrency">
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+                <option value="cardano">Cardano</option>
+                <option value="binance-coin">Binance Coin</option>
+                <option value="xrp">XRP</option>
+                <option value="solana">Solana</option>
+                <option value="polkadot">Polkadot</option>
+                <option value="dogecoin">Dogecoin</option>
+                <option value="chainlink">Chainlink</option>
+                <option value="bitcoin-cash">Bitcoin Cash</option>
             </select>
-          </div>
-          <div>
-            <label for="amount">Enter amount:</label>
-            <input type="number" id="amount" min="0" step="0.000001" />
-          </div>
-          <div>
-            <label for="operation">Select operation:</label>
-            <select id="operation">
-              <option value="usdToCrypto">USD to cryptocurrency</option>
-              <option value="cryptoToUsd">Cryptocurrency to USD</option>
+          </td>
+          <td>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" min="0" step="0.0001" />
+          </td>
+          <td>
+            <label for="currency">Currency:</label>
+            <select name="currency" id="currency">
+              <option value="usd">USD</option>
+              <option value="gbp">GBP</option>
             </select>
-          </div>
-          <button id="calculateButton">Calculate</button>
-          <div id="result"></div>
-        </div>
-        <script src="script.js"></script>
-      </body>
-    </html>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" id="result"></td>
+        </tr>
+      </table>
+      <script src="script.js"></script>
+      
+    
     
 
 
