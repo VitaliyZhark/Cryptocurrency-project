@@ -1,7 +1,5 @@
-# Cryptocurrency-API-project
-cryptocurrency calculator
-
-# Cryptocurrency Calculator
+# API project
+Cryptocurrency Calculator
 
 ## Description
 
@@ -9,6 +7,7 @@ Cryptocurrency Web Application that can calculator the PROFIT / LOSS using HTML 
 
 ## Table of Contents
 * [Usage](#usage)
+* [Technologies](#technologies)
 * [Contributing](#contributing)
 * [Questions](#questions)
 
@@ -18,7 +17,13 @@ To use the application, please follow link:
 
 https://vitaliyzhark.github.io/Cryptocurrency-project/
 
-Select your cryptocurrency and enter tax data, then click the calculate button
+Select your cryptocurrency and enter investment/exit fee, then click the calculate button.
+
+## Technologies
+HTML
+CSS
+Javascript
+
 
 ## Contributing
 To contribute to this project, please fork the repository and submit a pull request.
