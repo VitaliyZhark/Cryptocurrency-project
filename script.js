@@ -14,29 +14,6 @@ const container = document.querySelector(".container"),
   cryptoCurrency.addEventListener("change", function () {
     switch (cryptoCurrency.value) {
       case "BTC":
-  
-        break;
-      case "ETH":
-  
-        break;
-      case "LTC":
-  
-        break;
-      case "XRP":
-  
-        break;
-      case "UNI":
-  
-        break;
-  
-      default:
-  
-    }
-  });
-
-  cryptoCurrency.addEventListener("change", function () {
-    switch (cryptoCurrency.value) {
-      case "BTC":
         container.style.background = "var(--btc-color)";
         container.style.color = "var(--dark-color)";
         break;
