@@ -43,7 +43,7 @@ const calculate = () => {
     const currency = currencySelect.value;
     const amount = amountInput.value;
     const operation = operationSelect.value;
-    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${currency === 'bitcoin' ? 2 : currency === 'ethereum' ? 3 : 4}) td:nth-of-type(3)`).innerHTML);
+    const usdRate = parseFloat(exchangeRatesTable.querySelector(`tr:nth-of-type(${currency === 'bitcoin' ? 2 : currency === 'ethereum' ? 3 : 4} ${currency !== 'bitcoin' ? '+ 1' : ''}) td:nth-of-type(3)`).innerHTML);
     const result = operation === 'usdToCrypto' ? (amount / usdRate).toFixed(8) : (amount * usdRate).toFixed(2);
     resultDiv.innerHTML = `Result: ${result} ${operation === 'usdToCrypto' ? currency.toUpperCase() : 'USD'}`;
 }
