@@ -146,6 +146,14 @@ if (isNaN(profitValue, profitPercentage)) {
     `;
   }
 
+// Fade inn results
+
+profit.classList.add("fadeIn");
+
+  setTimeout(function () {
+    profit.classList.remove("fadeIn");
+  }, 500);
+
 //   clear fields
 // clearInputs();
 
@@ -189,24 +197,9 @@ function getValues() {
         }
       });
 
-      //   Clear Fields 
-      
 
-
-
-      
-
-      let profitLoss;
-  if (profitValue > 0) {
-    profitLoss = "profit";
-  } else {
-    profitLoss = "loss";
   }
 
-  profit.classList.add("fadeIn");
-
-  setTimeout(function () {
-    profit.classList.remove("fadeIn");
-  }, 500);
+  
 
   
