@@ -11,6 +11,7 @@ Cryptocurrency Web Application that can calculator the PROFIT / LOSS using HTML 
 * [API](#api)
 * [Contributing](#contributing)
 * [Questions](#questions)
+* [License](#lisence)
 
 
 ## Usage
@@ -28,7 +29,7 @@ Select your cryptocurrency and enter investment/exit fee, then click the calcula
 </ul>
 
 ## API
-To use the application, please follow link:
+https://api.coingecko.com/api
 
 <h2 id="Preview">Preview</h2>
 <p>The following image shows the web application's appearance and functionality:</p>
