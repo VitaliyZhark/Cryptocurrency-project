@@ -57,3 +57,4 @@ const getCurrencyRow = (currency) => {
             return 3;
     }
 }
+
