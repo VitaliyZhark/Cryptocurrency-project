@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
-    font-family: 'Montserrat';
+    font-family: "Roboto", sans-serif;
   }
   
   :root {
@@ -51,7 +51,7 @@
     line-height: 1.5;
     letter-spacing: 0.7px;
     border-radius: 0.3rem;
-    color: #fffb00;
+    color: #fff;
     background-color: black;
     border: none;
     box-shadow: 0 2px 5px rgba(51, 51, 51, 0.3);
@@ -65,14 +65,14 @@
   }
   
   .btn-primary {
-    background-color: #0182ad;
+    background-color: #7633f9;
     color: black;
     width: 100%;
     margin-top: 2rem;
   }
   
   .btn-primary:hover {
-    background: rgba(0, 207, 197, 0.75);
+    background: rgba(118, 51, 249, 0.75);
   }
   #crypto-select {
     width: 100%;
@@ -81,7 +81,7 @@
     width: 50%;
   }
   form .btn {
-    color: #fffb00;
+    color: #eee;
   }
   
   .form-group {

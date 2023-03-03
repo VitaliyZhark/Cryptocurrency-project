@@ -197,9 +197,4 @@ function getValues() {
         }
       });
 
-
-  }
-
-  
-
   
