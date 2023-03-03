@@ -4,14 +4,15 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Montserrat';
   }
   
   :root {
     --primary-color: #7633f9;
-    --secondary-color: #ffc107;
-    --light-color: #f5f5f5;
-    --dark-color: #08023a;
+    --secondary-color: linear-gradient(135deg, #15fffb 0%, #0048a7 100%);
+    --light-color: #92ff88;
+    --light-colorr: white;
+    --dark-color: #000737;
     --success-color: #28a745;
     --danger-color: #dc3545;
     --btc-color: #f2a400;
@@ -65,7 +66,7 @@
   }
   
   .btn-primary {
-    background-color: #7633f9;
+    background-color: #006181;
     color: black;
     width: 100%;
     margin-top: 2rem;
@@ -131,7 +132,7 @@
   .result {
     width: 50%;
     padding: 20px;
-    background-color: var(--light-color);
+    background-color: var(--light-colorr);
     color: var(--dark-color);
     border-radius: 25px;
     font-weight: 500;
