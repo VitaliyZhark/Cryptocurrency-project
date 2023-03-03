@@ -80,7 +80,28 @@ const container = document.querySelector(".container"),
 // Calc inv with fee
 
 const investmentWithFee = (amountValue * entryFeeValue) / 100;
-console.log(investmentWithFee);
+      const units = (amountValue - investmentWithFee) / priceValue;
+      const soldCurrency = units * sellPriceValue;
+      const feeOfTheExitValue = (soldCurrency * exitFeeValue) / 100;
+      const exitValue = soldCurrency - feeOfTheExitValue - investmentWithFee;
+      const profitValue = exitValue - amountValue;
+      const profitPercentage = (profitValue / amountValue) * 100;
+
+      console.log(
+        investmentWithFee, 
+        units, 
+        soldCurrency, 
+        feeOfTheExitValue,
+        exitValue,
+        profitValue,
+        profitPercentage
+        );
+
+if(isNAN(profitValue,profitPercentage)) {
+    profit.innerHTML =`<h2 class = "loss" > Complete all fields </h2>`;
+} else {
+    profit.innerHTML = ``;
+}
 });
 
 // Gat all Values
@@ -98,7 +119,7 @@ function getValues() {
         );
       }
 
-
+// Check Price Section
 
        selectMarketPrice.addEventListener("change", function () {
         if (selectMarketPrice.checked === true) {
@@ -108,13 +129,7 @@ function getValues() {
         }
       });
 
-      const investmentWithFee = (amountValue * entryFeeValue) / 100;
-      const units = (amountValue - investmentWithFee) / priceValue;
-      const soldCurrency = units * sellPriceValue;
-      const feeOfTheExitValue = (soldCurrency * exitFeeValue) / 100;
-      const exitValue = soldCurrency - feeOfTheExitValue - investmentWithFee;
-      const profitValue = exitValue - amountValue;
-      const profitPercentage = (profitValue / amountValue) * 100;
+      
 
       if (isNaN(profitValue, profitPercentage)) {
         profit.innerHTML = `<h2 class= "loss" > Complete all fields !</h2>`;
