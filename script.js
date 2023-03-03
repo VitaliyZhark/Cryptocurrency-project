@@ -74,9 +74,16 @@ const container = document.querySelector(".container"),
         e.preventDefault();
 
         getValues();
-       });
+       
+// Calculations
 
+// Calc inv with fee
 
+const investmentWithFee = (amountValue * entryFeeValue) / 100;
+console.log(investmentWithFee);
+});
+
+// Gat all Values
 
 function getValues() {
         return (
@@ -92,8 +99,6 @@ function getValues() {
       }
 
 
-
-       (sellPriceValue = selectMarketPrice.checked ? marketPrice.value : parseFloat(sellPrice.value)),
 
        selectMarketPrice.addEventListener("change", function () {
         if (selectMarketPrice.checked === true) {
