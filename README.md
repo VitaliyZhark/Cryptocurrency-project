@@ -29,7 +29,7 @@ Select your cryptocurrency and enter investment/exit fee, then click the calcula
 </ul>
 
 ## API
-https://api.coingecko.com/api
+https://www.coingecko.com/en/api
 
 <h2 id="Preview">Preview</h2>
 <p>The following image shows the web application's appearance and functionality:</p>
