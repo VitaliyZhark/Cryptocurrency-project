@@ -1,3 +1,5 @@
+
+
 const container = document.querySelector(".container"),
   fromCurrency = document.getElementById("from-currency"),
   amount = document.getElementById("amount"),
@@ -11,34 +13,45 @@ const container = document.querySelector(".container"),
   cryptoCurrency = document.getElementById("crypto-select"),
   profit = document.getElementById("profit");
 
+
+
   cryptoCurrency.addEventListener("change", function () {
     switch (cryptoCurrency.value) {
-      case "BTC":
-        container.style.background = "var(--btc-color)";
-        container.style.color = "var(--dark-color)";
-        break;
-      case "ETH":
-        container.style.background = "var(--eth-color)";
-        container.style.color = "var(--light-color)";
-        break;
-      case "LTC":
-        container.style.background = "var(--ltc-color)";
-        container.style.color = "var(--dark-color)";
-        break;
-      case "XRP":
-        container.style.background = "var(--xrp-color)";
-        container.style.color = "var(--light-color)";
-        break;
-      case "UNI":
-        container.style.background = "var(--uni-color)";
-        container.style.color = "var(--light-color)";
-        break;
+        case "BTC":
+            container.style.background = "var(--btc-color)";
+            container.style.color = "var(--dark-color)";
+            getPrice("btc");
+            break;
+          case "ETH":
+            container.style.background = "var(--eth-color)";
+            container.style.color = "var(--light-color)";
+            getPrice("eth");
+            break;
+          case "LTC":
+            container.style.background = "var(--ltc-color)";
+            container.style.color = "var(--dark-color)";
+            getPrice("ltc");
+      
+            break;
+          case "XRP":
+            container.style.background = "var(--xrp-color)";
+            container.style.color = "var(--light-color)";
+            getPrice("xrp");
+      
+            break;
+          case "UNI":
+            container.style.background = "var(--uni-color)";
+            container.style.color = "var(--light-color)";
+            getPrice("uni");
+      
+            break;
   
       default:
         container.style.background = "var(--secondary-color)";
         container.style.color = "var(--dark-color)";
     }
   });
+
 
   async function getPrice(cryptoCurrency) {
     try {
@@ -55,34 +68,7 @@ const container = document.querySelector(".container"),
     }
   }
 
-  case "BTC":
-      container.style.background = "var(--btc-color)";
-      container.style.color = "var(--dark-color)";
-      getPrice("btc");
-      break;
-    case "ETH":
-      container.style.background = "var(--eth-color)";
-      container.style.color = "var(--light-color)";
-      getPrice("eth");
-      break;
-    case "LTC":
-      container.style.background = "var(--ltc-color)";
-      container.style.color = "var(--dark-color)";
-      getPrice("ltc");
-
-      break;
-    case "XRP":
-      container.style.background = "var(--xrp-color)";
-      container.style.color = "var(--light-color)";
-      getPrice("xrp");
-
-      break;
-    case "UNI":
-      container.style.background = "var(--uni-color)";
-      container.style.color = "var(--light-color)";
-      getPrice("uni");
-
-      break;
+  
 
 
       calculate.addEventListener("click", function (e) {...}
