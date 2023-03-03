@@ -87,21 +87,78 @@ const investmentWithFee = (amountValue * entryFeeValue) / 100;
       const profitValue = exitValue - amountValue;
       const profitPercentage = (profitValue / amountValue) * 100;
 
-      console.log(
-        investmentWithFee, 
-        units, 
-        soldCurrency, 
-        feeOfTheExitValue,
-        exitValue,
-        profitValue,
-        profitPercentage
-        );
+    //   console.log(
+    //     investmentWithFee, 
+    //     units, 
+    //     soldCurrency, 
+    //     feeOfTheExitValue,
+    //     exitValue,
+    //     profitValue,
+    //     profitPercentage
+    //     );
 
-if(isNAN(profitValue,profitPercentage)) {
-    profit.innerHTML =`<h2 class = "loss" > Complete all fields </h2>`;
-} else {
-    profit.innerHTML = ``;
+let profitLoss;
+if(profitValue >0) {
+    profitLoss = "profit";
+}else{
+    profitLoss = "loss";
 }
+
+if (isNaN(profitValue, profitPercentage)) {
+    profit.innerHTML = `<h2 class= "loss" > Complete all fields !</h2>`;
+  } else {
+    profit.innerHTML = `<h2 class=${profitLoss}> ${
+      profitLoss.charAt(0).toUpperCase() + profitLoss.slice(1)
+    }</h2>
+
+    <div class=${profitLoss}>${profitValue.toFixed(
+      2
+    )} $ (${profitPercentage.toFixed(2)}%)</div>
+
+    <h4>Initial investment</h4>
+  <div class="primary">${amountValue.toFixed(2)} $</div>
+
+    <h4>Buy fee</h4>
+  <div class="primary">${investmentWithFee.toFixed(2)} $</div>
+
+        <h4>Investment after fee</h4>
+  <div class="primary">${amountValue - investmentWithFee.toFixed(2)} $</div>
+
+
+  <h4>Crypto currency units</h4>
+  <div class="primary">${units} ${cryptoCurrencyValue}</div>
+
+
+  <h4>Sell Fee</h4>
+  <div class="primary">${feeOfTheExitValue.toFixed(2)}</div>
+
+
+ <h4>Total Fees</h4>
+  <div class="primary">${(feeOfTheExitValue + investmentWithFee).toFixed(
+    2
+  )}</div>
+
+
+  <h4>Total Exit Amount</h4>
+  <div class="${profitLoss}">${exitValue.toFixed(2)}</div>
+
+
+    `;
+  }
+
+//   clear fields
+// clearInputs();
+
+(function() { 
+  
+    amount.value = "";
+    price.value = "";
+    entryFee.value = "";
+    sellPrice.value = "";
+    exitFee.value = "";
+  })();
+
+
 });
 
 // Gat all Values
@@ -119,7 +176,10 @@ function getValues() {
         );
       }
 
-// Check Price Section
+
+
+
+      // Check Price Section
 
        selectMarketPrice.addEventListener("change", function () {
         if (selectMarketPrice.checked === true) {
@@ -129,49 +189,12 @@ function getValues() {
         }
       });
 
+      //   Clear Fields 
       
 
-      if (isNaN(profitValue, profitPercentage)) {
-        profit.innerHTML = `<h2 class= "loss" > Complete all fields !</h2>`;
-      } else {
-        profit.innerHTML = `<h2 class=${profitLoss}> ${
-          profitLoss.charAt(0).toUpperCase() + profitLoss.slice(1)
-        }</h2>
-    
-        <div class=${profitLoss}>${profitValue.toFixed(
-          2
-        )} $ (${profitPercentage.toFixed(2)}%)</div>
-    
-        <h4>Initial investment</h4>
-      <div class="primary">${amountValue.toFixed(2)} $</div>
-    
-        <h4>Buy fee</h4>
-      <div class="primary">${investmentWithFee.toFixed(2)} $</div>
-    
-            <h4>Investment after fee</h4>
-      <div class="primary">${amountValue - investmentWithFee.toFixed(2)} $</div>
-    
-    
-      <h4>Crypto currency units</h4>
-      <div class="primary">${units} ${cryptoCurrencyValue}</div>
-    
-    
-      <h4>Sell Fee</h4>
-      <div class="primary">${feeOfTheExitValue.toFixed(2)}</div>
-    
-    
-     <h4>Total Fees</h4>
-      <div class="primary">${(feeOfTheExitValue + investmentWithFee).toFixed(
-        2
-      )}</div>
-    
-    
-      <h4>Total Exit Amount</h4>
-      <div class="${profitLoss}">${exitValue.toFixed(2)}</div>
-    
-    
-        `;
-      }
+
+
+      
 
       let profitLoss;
   if (profitValue > 0) {
@@ -186,10 +209,4 @@ function getValues() {
     profit.classList.remove("fadeIn");
   }, 500);
 
-  function clearInputs() {
-    amount.value = "";
-    price.value = "";
-    entryFee.value = "";
-    sellPrice.value = "";
-    exitFee.value = "";
-  }
+  
