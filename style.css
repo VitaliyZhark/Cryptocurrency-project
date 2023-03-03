@@ -9,16 +9,16 @@
   
   :root {
     --primary-color: #7633f9;
-    --secondary-color: #ffc107;
+    --secondary-color: linear-gradient(135deg, #00d3d0 0%, #004aac 100%);
     --light-color: #f5f5f5;
     --dark-color: #05012d;
     --success-color: #28a745;
     --danger-color: #dc3545;
-    --btc-color: #f2a400;
-    --eth-color: #626bd9;
-    --ltc-color: #7d8fb3;
-    --xrp-color: #0c1818;
-    --uni-color: #ff007a;
+    --btc-color: linear-gradient(135deg, #fff200 0%, #ff0000 100%);
+    --eth-color: linear-gradient(135deg, #5db1ff 0%, #d138ff 100%);
+    --ltc-color: linear-gradient(135deg, #75bcff 0%, #38ff98 100%);
+    --xrp-color: linear-gradient(135deg, #002446 0%, #ff6294 100%);
+    --uni-color: linear-gradient(135deg, #ff0ae2 0%, #b0ff62 100%);
   }
   
   body {
@@ -39,7 +39,7 @@
     margin: 2rem;
     text-align: center;
     font-size: 5rem;
-    color: var(--light-color);
+    color: rgb(255, 247, 0);
   }
   /*Buttons*/
   .btn {
@@ -72,7 +72,7 @@
   }
   
   .btn-primary:hover {
-    background: rgba(118, 51, 249, 0.75);
+    background: rgba(29, 146, 255, 0.75);
   }
   #crypto-select {
     width: 100%;
