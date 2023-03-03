@@ -70,14 +70,15 @@ const container = document.querySelector(".container"),
 
   
 
-
-      calculate.addEventListener("click", function (e) {...}
-
       calculate.addEventListener("click", function (e) {
         e.preventDefault();
-       ...}
 
-       function getValues() {
+        getValues();
+       });
+
+
+
+function getValues() {
         return (
           (amountValue = parseFloat(amount.value)),
           (priceValue = parseFloat(price.value)),
@@ -90,10 +91,7 @@ const container = document.querySelector(".container"),
         );
       }
 
-      calculate.addEventListener("click", function (e) {
-        e.preventDefault();
-        getValues();
-       ...}
+
 
        (sellPriceValue = selectMarketPrice.checked ? marketPrice.value : parseFloat(sellPrice.value)),
 
